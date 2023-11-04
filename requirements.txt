@@ -1,0 +1,9 @@
+torch
+torchvision
+torchaudio
+wandb
+pysc2
+matplotlib
+seaborn
+burnysc2
+numpy
