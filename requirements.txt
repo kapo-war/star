@@ -7,3 +7,5 @@ matplotlib
 seaborn
 burnysc2
 numpy
+nvitop
+sklearn
