@@ -15,20 +15,22 @@ ENV TZ=Asia/Seoul
 
 RUN apt-get update --fix-missing
 RUN apt-get upgrade -y
-RUN apt-get install -y \
-    build-essential cmake libtool autoconf unzip zip \
-    bzip2 curl git tty-clock vim tmux wget dpkg \
-    python3.11 python3-pip \
-    golang
-
-# copy and install requirements.txt
-COPY requirements.txt /root/requirements.txt
-RUN pip3 install -r /root/requirements.txt
+RUN apt-get install -y wget unzip zip
 
 # install sc2 linux pakage
 RUN wget --quiet -O sc2.4.10.zip https://blzdistsc2-a.akamaihd.net/Linux/SC2.4.10.zip
 RUN unzip -P iagreetotheeula sc2.4.10.zip -d /root/StarCraftII
 RUN rm -rf sc2.4.10.zip
+
+RUN apt-get install -y \
+    build-essential cmake libtool autoconf \
+    bzip2 curl git tty-clock vim tmux dpkg \
+    python3.10 python3-pip \
+    golang
+
+# copy and install requirements.txt
+COPY requirements.txt /root/requirements.txt
+RUN pip3 install -r /root/requirements.txt
 
 # test
 COPY ./test /root/test
