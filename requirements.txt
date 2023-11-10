@@ -9,3 +9,4 @@ burnysc2
 numpy
 nvitop
 scikit-learn
+sc2-datasets
